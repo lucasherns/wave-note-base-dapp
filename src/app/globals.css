@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root { --background: #17130f; --foreground: #f6ead8; }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+* { box-sizing: border-box; }
+html { background: #17130f; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(255, 183, 77, .22), transparent 28%),
+    linear-gradient(135deg, rgba(255,255,255,.04) 25%, transparent 25%) 0 0/18px 18px,
+    #17130f;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+button, input, textarea { font: inherit; }
+button { cursor: pointer; border: 0; }
+button:disabled { opacity: .62; cursor: not-allowed; }
+::selection { background: #ffb84d; color: #17130f; }
+
+.wave-shell { display: grid; min-height: 100vh; grid-template-columns: 390px minmax(0, 1fr); gap: 18px; padding: 18px; }
+.control-deck,.radio-unit,.load-wave,.about-wave {
+  border: 1px solid rgba(255, 232, 196, .18);
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(72, 50, 35, .96), rgba(37, 27, 22, .98));
+  box-shadow: 0 18px 60px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.control-deck { align-self: start; padding: 18px; }
+.deck-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+.deck-head p,.deck-stats span,.control-deck label span,.tuner p,.tone-card span,.radio-unit footer span,.load-wave span,.about-wave p {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #ffcf80;
+}
+.deck-head h1 { margin: 8px 0 0; max-width: 260px; font-size: 52px; font-weight: 950; line-height: .9; color: #fff2d8; }
+.deck-head>svg { width: 66px; height: 66px; padding: 16px; border-radius: 50%; background: #ffb84d; color: #17130f; box-shadow: 0 0 0 7px rgba(255,184,77,.18); }
+.deck-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+.deck-stats div { border-radius: 8px; background: rgba(255, 232, 196, .1); padding: 14px; }
+.deck-stats strong { display: block; margin-top: 8px; font-size: 34px; font-weight: 950; color: #fff6e8; }
+.preset-strip { display: grid; gap: 10px; margin: 18px 0; }
+.preset-strip button { display: grid; grid-template-columns: 58px 1fr; gap: 12px; align-items: center; border-radius: 8px; background: rgba(255, 247, 228, .08); padding: 12px; text-align: left; color: #fff2d8; }
+.preset-strip button>span { display: grid; place-items: center; min-height: 56px; border-radius: 50%; background: #101010; color: #8cf7d2; font-family: var(--font-geist-mono), monospace; font-size: 20px; font-weight: 900; border: 2px solid rgba(140,247,210,.4); }
+.preset-strip strong { display: block; font-weight: 950; }
+.preset-strip small { display: block; margin-top: 4px; color: rgba(246,234,216,.68); font-size: 12px; line-height: 1.35; }
+.control-deck label { display: block; margin-top: 12px; }
+.control-deck input,.control-deck textarea,.load-wave input { width: 100%; margin-top: 7px; border: 1px solid rgba(255, 232, 196, .18); border-radius: 8px; background: #120f0c; outline: none; padding: 13px 14px; color: #fff2d8; font-weight: 850; }
+.control-deck textarea { resize: vertical; line-height: 1.45; }
+.range-label input { accent-color: #ffb84d; padding: 0; height: 32px; }
+.tone-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 14px; }
+.tone-grid button { border-radius: 999px; background: rgba(255,255,255,.08); color: #fff2d8; min-height: 42px; font-weight: 900; }
+.tone-grid button.active { background: #8cf7d2; color: #17130f; }
+.wave-actions { display: grid; gap: 10px; margin-top: 16px; }
+.broadcast,.wallet { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; border-radius: 8px; font-weight: 950; }
+.broadcast { background: #ffb84d; color: #17130f; }
+.wallet { background: rgba(140,247,210,.14); color: #8cf7d2; border: 1px solid rgba(140,247,210,.2); }
+.wave-status,.wave-tx { display: block; margin-top: 12px; border-radius: 8px; background: rgba(140,247,210,.12); padding: 12px 14px; color: #d9fff1; font-size: 13px; font-weight: 760; line-height: 1.45; }
+.wave-tx { color: #8cf7d2; text-decoration: underline; }
+.stage { display: grid; align-content: start; gap: 16px; }
+.radio-unit { display: grid; grid-template-columns: 320px 1fr; min-height: 680px; padding: 28px; background: linear-gradient(120deg, #2d211b, #60442d); overflow: hidden; }
+.speaker { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-content: center; padding: 22px; border-radius: 10px; background: #17130f; }
+.speaker span { aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(255,232,196,.18), rgba(255,232,196,.05) 45%, transparent 46%); border: 1px solid rgba(255,232,196,.1); }
+.tuner { padding: 18px 0 18px 34px; }
+.tuner h2 { margin: 12px 0 0; max-width: 760px; color: #fff2d8; font-size: clamp(48px, 7vw, 104px); line-height: .88; font-weight: 950; }
+.dial-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch; margin-top: 28px; }
+.dial { display: grid; place-items: center; width: 210px; height: 210px; border-radius: 50%; background: #111; border: 12px solid #ffb84d; box-shadow: inset 0 0 0 10px rgba(255,255,255,.06), 0 0 36px rgba(255,184,77,.25); }
+.dial strong { color: #8cf7d2; font-family: var(--font-geist-mono), monospace; font-size: 72px; line-height: .9; }
+.dial span { color: #ffcf80; font-family: var(--font-geist-mono), monospace; font-weight: 900; letter-spacing: .18em; }
+.tone-card { min-width: 220px; border-radius: 10px; background: rgba(255, 247, 228, .1); padding: 26px; }
+.tone-card strong { display: block; margin-top: 14px; font-size: 42px; font-weight: 950; color: #fff2d8; }
+.frequency-bar { position: relative; margin-top: 28px; height: 28px; border-radius: 999px; background: #130f0c; border: 1px solid rgba(255,232,196,.16); overflow: hidden; }
+.frequency-bar span { position: absolute; inset: 0 auto 0 0; width: var(--level); background: linear-gradient(90deg, #8cf7d2, #ffb84d); }
+.tuner blockquote { margin: 28px 0 0; max-width: 760px; color: #fff6e8; font-size: 30px; font-weight: 850; line-height: 1.18; }
+.radio-unit footer { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+.radio-unit footer div { border-radius: 8px; background: rgba(255, 247, 228, .08); padding: 16px; }
+.radio-unit footer strong { display: block; margin-top: 8px; overflow-wrap: anywhere; color: #fff2d8; font-size: 20px; font-weight: 900; }
+.stage-lower { display: grid; grid-template-columns: .8fr 1.2fr; gap: 16px; }
+.load-wave,.about-wave { padding: 18px; }
+.load-wave>div { display: flex; align-items: center; gap: 8px; }
+.load-wave h2 { color: #fff2d8; font-size: 22px; font-weight: 950; }
+.about-wave strong { display: block; margin-top: 12px; color: #fff2d8; font-size: 26px; line-height: 1.14; font-weight: 900; }
+.load-wave svg { width: 18px; height: 18px; color: #ffb84d; }
+@media (max-width: 980px){ .wave-shell{ grid-template-columns: 1fr; padding: 12px; } .radio-unit{ grid-template-columns: 1fr; } .speaker{ min-height: 180px; } .tuner{ padding: 22px 0 0; } .stage-lower{ grid-template-columns: 1fr; } }
+@media (max-width: 540px){
+  .deck-head h1{ font-size: 38px; }
+  .deck-head>svg{ width: 58px; height: 58px; padding: 14px; }
+  .deck-stats{ grid-template-columns: 1fr 1fr; }
+  .deck-stats div{ padding: 10px; }
+  .deck-stats strong{ font-size: 28px; }
+  .preset-strip{ gap: 8px; margin: 12px 0; }
+  .preset-strip button{ grid-template-columns: 50px 1fr; padding: 9px; }
+  .preset-strip button>span{ min-height: 48px; font-size: 18px; }
+  .preset-strip small{ display: none; }
+  .control-deck input,.control-deck textarea,.load-wave input{ padding: 11px 12px; }
+  .radio-unit footer{ grid-template-columns: 1fr; }
+  .radio-unit{ min-height: 620px; padding: 20px; }
+  .tuner h2{ font-size: 56px; }
+  .dial{ width: 172px; height: 172px; }
+  .dial strong{ font-size: 58px; }
+  .tone-grid{ grid-template-columns: repeat(2, 1fr); }
+}
